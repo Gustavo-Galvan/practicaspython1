@@ -1,16 +1,29 @@
-x = float(input("Ingrese la coordenada X del punto: "))
-y = float(input("Ingrese la coordenada Y del punto: "))
+import random
+import matplotlib.pyplot as plt
 
-if x > 0 and y > 0:
-    print("El punto está en el cuadrante I")
-elif x < 0 and y > 0:
-    print("El punto está en el cuadrante II")
-elif x < 0 and y < 0:
-    print("El punto está en el cuadrante III")
-elif x > 0 and y < 0:
-    print("El punto está en el cuadrante IV")
-elif x == 0 and y == 0:
-    print("El punto está en el origen")
-else:
-    print("El punto está sobre uno de los ejes")
-    
+def simular_maquina_galton(niveles, canicas):
+    contadores = [0] * (niveles + 1)
+
+    for _ in range(canicas):
+        contador = 0
+        for _ in range(niveles):
+            lado = random.choice([0, 1])
+            contador += lado
+        contadores[contador] += 1
+
+    return contadores
+
+def graficar_histograma(contadores):
+    niveles = len(contadores)
+    x = range(niveles)
+    y = contadores
+
+    plt.bar(x, y)
+    plt.xlabel('Contenedores')
+    plt.ylabel('Cantidad de canicas')
+    plt.title('Histograma de la Máquina de Galton')
+
+    plt.show()
+
+resultados = simular_maquina_galton(12, 3000)
+graficar_histograma(resultados)
