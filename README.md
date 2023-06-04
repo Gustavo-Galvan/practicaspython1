@@ -1,23 +1,9 @@
-# practicaspython1
-secundo proyecto
+El código consta de dos funciones principales: simular_maquina_galton() y graficar_histograma().
 
-  primer codigo:
-  
-En el primer código, se utiliza un bucle while True para solicitar al usuario que ingrese una palabra. Se utiliza la función len() para determinar la longitud de la palabra ingresada y luego se evalúa si la longitud de la palabra está dentro del rango de 4 a 8 caracteres. Dependiendo de la longitud de la palabra, se imprime un mensaje que indica si la palabra es correcta, si faltan letras o si sobran letras. El bucle se seguirá ejecutando hasta que el usuario escriba "salir".
+La función simular_maquina_galton() simula el proceso de una máquina de Galton. Recibe dos parámetros: niveles y canicas. En cada iteración del bucle exterior (que se repite canicas veces), se simula el movimiento de una canica a través de los niveles de obstáculos. Para cada nivel, se selecciona aleatoriamente un lado (0: izquierda, 1: derecha) utilizando random.choice([0, 1]). Dependiendo del lado seleccionado, se incrementa el contador en 1 o se deja igual. Al final de cada iteración, se incrementa el contador correspondiente al nivel donde termina la canica en la lista contadores. Al finalizar todas las iteraciones, se devuelve la lista contadores que contiene el recuento de canicas en cada nivel.
 
-En el segundo código, se solicita al usuario que ingrese tres palabras. Si una palabra tiene menos de 2 caracteres, se agrega una "X" al principio de la palabra. Luego, se genera una contraseña utilizando los primeros dos caracteres de cada una de las palabras ingresadas. Finalmente, se solicita al usuario que ingrese la contraseña y se evalúa si es correcta o no. Si la contraseña no es correcta, se imprime un mensaje que indica cuántos caracteres faltan o sobran.
+La función graficar_histograma() recibe la lista contadores como parámetro. Utiliza la biblioteca matplotlib.pyplot para crear un histograma de barras. Se define un conjunto de valores x correspondientes a los contenedores y otro conjunto de valores y correspondientes a la cantidad de canicas en cada contenedor. Se utiliza la función plt.bar() para crear el gráfico de barras con los valores x e y. Luego se establecen etiquetas para los ejes x e y con plt.xlabel() y plt.ylabel(), respectivamente. Finalmente, se establece un título para el gráfico con plt.title(). Finalmente, se muestra el gráfico utilizando plt.show().
 
-Para combinar los dos códigos, se puede simplemente colocar el primer bloque de código dentro de un bucle while True antes de solicitar las palabras para la contraseña. De esta manera, el programa seguirá pidiendo palabras hasta que el usuario escriba "salir". Luego, se puede utilizar el código restante para generar y verificar la contraseña.
+En la parte final del código, se invoca la función simular_maquina_galton() pasando los valores 12 para niveles y 3000 para canicas, y se guarda el resultado en la variable resultados. Luego, se invoca la función graficar_histograma() pasando resultados como argumento para generar y mostrar el histograma.
 
-  secundo codigo:
-  
-  El codigo comienza pidiéndole al usuario que ingrese dos números enteros utilizando la función input(), que toma la entrada del usuario en forma de cadena y la convierte en un entero utilizando la función int().
-
-Luego, el programa intercambia los valores de las variables utilizando una variable temporal llamada temp. En resumen, los valores de las variables a y b se intercambian de la siguiente manera:
-
-Se almacena el valor de a en temp.
-Se almacena el valor de b en a.
-Se almacena el valor original de a (almacenado en temp) en b.
-Finalmente, el programa muestra los nuevos valores intercambiados utilizando la función print(). El mensaje de salida muestra los nuevos valores de a y b, respectivamente, utilizando cadenas de texto y los valores de las variables utilizando la notación de formato de cadena (con las variables dentro de llaves).
-
-En resumen, el código intercambia los valores de dos variables utilizando una variable temporal y muestra los nuevos valores intercambiados en pantalla.
+Este código simula el proceso de una máquina de Galton con obstáculos y muestra un histograma que representa la cantidad de canicas en cada nivel después de realizar la simulación.
